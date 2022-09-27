@@ -1,0 +1,9 @@
+# Jekyll main configuration file
+
+title: Paul Fisher
+description: "Just a place to store and display some of my work"
+
+theme: minima 
+
+exclude:  
+- .gitignore
