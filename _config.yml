@@ -1,9 +1,4 @@
-# Jekyll main configuration file
-
 title: Paul Fisher
-description: "Just a place to store and display some of my work"
-
-theme: minima 
-
-exclude:  
-- .gitignore
+description: Data Scientist Extraordinaire
+show_downloads: true
+theme: jekyll-theme-cayman
