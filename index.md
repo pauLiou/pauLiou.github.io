@@ -214,8 +214,9 @@ people who completed a test during the day and also during the night.
 
 ### We can then compute the following hypotheses:
 
-H<sub>0</sub>: µ<sub>1</sub> = µ<sub>2</sub> _**The paired population means are equal**
-H<sub>1</sub>: µ<sub>1</sub> = µ<sub>2</sub> **The paired population means are _not_ equal**
+H<sub>0</sub>: µ<sub>1</sub> = µ<sub>2</sub> **The paired population means are equal**
+
+H<sub>1</sub>: µ<sub>1</sub> ≠ µ<sub>2</sub> **The paired population means are _not_ equal**
 
 Where µ<sub>1</sub> and µ<sub>2</sub> are the population means of the two samples.
 
