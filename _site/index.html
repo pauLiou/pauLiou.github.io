@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Paul Fisher | Data Science Portfolio</title>
+<title>Project Work | Paul Fisher</title>
 <meta name="generator" content="Jekyll v3.9.2" />
-<meta property="og:title" content="Paul Fisher" />
+<meta property="og:title" content="Project Work" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Data Science Portfolio" />
 <meta property="og:description" content="Data Science Portfolio" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="Paul Fisher" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Paul Fisher" />
+<meta property="twitter:title" content="Project Work" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Data Science Portfolio","headline":"Paul Fisher","name":"Paul Fisher","url":"/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","description":"Data Science Portfolio","headline":"Project Work","name":"Paul Fisher","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,7 +25,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="/assets/css/style.css?v=5db132938463ce7ac8760b526ce915dcc13c43fd">
+    <link rel="stylesheet" href="/assets/css/style.css?v=3ceed9cf55064035e008d9e175aa25a2f24e571a">
     <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
 
 <!-- Setup Google Analytics -->
@@ -38,7 +40,7 @@
     <a id="skip-to-content" href="#content">Skip to the content.</a>
 
     <header class="page-header" role="banner">
-      <h1 class="project-name">Paul Fisher</h1>
+      <h1 class="project-name">Project Work</h1>
       <h2 class="project-tagline">Data Science Portfolio</h2>
       
         <a href="https://www.github.com/pauLiou/pauLiou.github.io" target="_blank" class="btn">View on GitHub</a>
@@ -49,433 +51,59 @@
     </header>
 
     <main id="content" class="main-content" role="main">
-      <p><strong>Hypothesis Machine</strong></p>
+      <h1 id="project-work">Project Work</h1>
 
-<p><em>I have developed an R Shiny application that allows users to perform statistical analysis on two groups and gives high quality presentable outputs</em></p>
+<p>Image Classification using Xception Machine Learning 95% Accuracy</p>
 
-<iframe height="650" width="100%" frameborder="no" src="https://paulfisher.shinyapps.io/r_shiny_app/">
-</iframe>
+<p><button onclick="window.location.href='project_image_classifier';">Click Here</button></p>
 
-<p>We simply add a file that has two columns and headers and we can instantly perform statistical calculations. Some sample data has been provided in order to 
-test it. Feel free to click around and try it out, you can also upload your own csv file if you like! It just needs 2 columns and a header.</p>
+<p>Deep Learning Algorithm for Titanic Competition (Kaggle)</p>
 
-<h1 id="step-1-developing-the-r-code">Step 1: Developing the R code</h1>
+<p><button onclick="window.location.href='project_titanic';">Click Here</button></p>
 
-<p>Here is a brief description of how R Shiny operates:</p>
+<p>R Shiny App - Hypothesis Testing/Correlations/Normal Distribution/Plots</p>
 
-<p align="center">
-<img src="http://yuml.me/diagram/scruffy/class/[Input Data]-&gt;[UI Function]-Reactively Cycles&gt;[Server Function]-&gt;[UI Function]&lt;&gt;-&gt;[Processing/Analysis]&lt;&gt;-&gt;[Output Result]" />
-</p>
-<p>The UI and Server functions communicate back and forth sending input and output information. We begin with the UI function:</p>
+<p><button onclick="window.location.href='project_r_shiny';">Click Here</button></p>
 
-<h2 id="ui-function">UI function</h2>
+<p>COVID Statistics with Tableau</p>
 
-<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">//</span><span class="w"> </span><span class="n">Here</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">my</span><span class="w"> </span><span class="n">script</span><span class="w">
-</span><span class="n">ui</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">fluidPage</span><span class="p">(</span><span class="w">
-  </span><span class="n">tags</span><span class="o">$</span><span class="n">style</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="s1">'text/css'</span><span class="p">,</span><span class="w"> </span><span class="s2">".selectize-dropdown { font-size: 12px; line-height:12px; }"</span><span class="p">),</span><span class="w">
-  </span><span class="n">theme</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shinytheme</span><span class="p">(</span><span class="s2">"superhero"</span><span class="p">),</span><span class="w">
-  </span><span class="c1"># App Title</span><span class="w">
-  </span><span class="n">titlePanel</span><span class="p">(</span><span class="s2">"Hypothesis Machine!"</span><span class="p">),</span><span class="w">
-  
-  </span><span class="c1"># Sidebar layout with input and output definitions ----</span><span class="w">
-  </span><span class="n">sidebarLayout</span><span class="p">(</span><span class="w">
-    </span><span class="c1"># Sidebar panel for inputs ----</span><span class="w">
-    </span><span class="n">sidebarPanel</span><span class="p">(</span><span class="w">
-      </span><span class="n">helpText</span><span class="p">(</span><span class="n">strong</span><span class="p">(</span><span class="s2">"Upload your csv file here:"</span><span class="p">)),</span><span class="w"> </span><span class="c1">#  for uploading the csv file</span><span class="w">
-      </span><span class="n">fileInput</span><span class="p">(</span><span class="w">
-        </span><span class="s2">"file1"</span><span class="p">,</span><span class="w"> </span><span class="c1"># variable name</span><span class="w">
-        </span><span class="s2">"Choose CSV File"</span><span class="p">,</span><span class="w">
-        </span><span class="n">multiple</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w">
-        </span><span class="n">accept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">".csv"</span><span class="p">)</span><span class="w"> </span><span class="c1"># types accepted</span><span class="w">
-      </span><span class="p">),</span><span class="w">
-      </span><span class="n">tags</span><span class="o">$</span><span class="n">hr</span><span class="p">(),</span><span class="w">
-      </span><span class="n">helpText</span><span class="p">(</span><span class="n">strong</span><span class="p">(</span><span class="s2">"Or manually enter your data below"</span><span class="p">)),</span><span class="w">
-      </span><span class="n">br</span><span class="p">(),</span><span class="w"> </span><span class="c1"># page break</span><span class="w">
-      </span><span class="n">br</span><span class="p">(),</span><span class="w">
+<p><button onclick="window.location.href='project_tableau';">Click Here</button></p>
 
-      </span><span class="n">...</span><span class="w">
-     
-  </span><span class="n">mainPanel</span><span class="p">(</span><span class="n">plotOutput</span><span class="p">(</span><span class="s2">"contents"</span><span class="p">),</span><span class="w">
-            </span><span class="n">textOutput</span><span class="p">(</span><span class="s2">"resultText"</span><span class="p">))</span><span class="w">
-</span><span class="p">))</span><span class="w">
-      
-</span></code></pre></div></div>
+<h1 id="research-projects-and-publications">Research Projects and Publications</h1>
 
-<p>The UI function deals with inputs in the <strong>sidebarPanel</strong> call. Within this section we can adapt what we will see when the app is initially loaded.
-So for example, currently we are only seeing the text instructing us to upload a csv file. Along with the tests that we can perform and a zoom function.
-So the first step is to input some data.</p>
+<p><u>Publications:</u></p>
 
-<p>The <strong>mainPanel</strong> call is what is output after the inputs are sent to the server function.</p>
+<p>Temporal Order Judgements and Presaccadic Shifts of Attention: What can Prior Entry teach us about the Premotor Theory? (Accepted)
+P. Fisher &amp; T. Schenk
+Journal of Vision</p>
 
-<h2 id="server-function">Server function</h2>
+<p><button onclick="window.location.href='Downloads/Temporal Order Judgements and Presaccadic Shifts of Attention What can Prior Entry tell us about the Premotor Theory.pdfproject_tableau';">Click Here (PDF)</button></p>
 
-<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">server</span><span class="w"> </span><span class="o">&lt;-</span><span class="w">  </span><span class="k">function</span><span class="p">(</span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">output</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="n">output</span><span class="o">$</span><span class="n">contents</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">renderPlot</span><span class="p">({</span><span class="w">
-    </span><span class="n">req</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">file1</span><span class="p">,</span><span class="w"> </span><span class="n">file.exists</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">file1</span><span class="o">$</span><span class="n">datapath</span><span class="p">))</span><span class="w"> </span><span class="c1"># check that the files exist</span><span class="w">
-    </span><span class="n">req</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">slider1</span><span class="p">)</span><span class="w"> </span><span class="c1"># also confirm that the slider is working as intended</span><span class="w">
-    </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">read.csv</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">file1</span><span class="o">$</span><span class="n">datapath</span><span class="p">)</span><span class="w"> </span><span class="c1"># read the csv file</span><span class="w">
-    </span><span class="n">data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">melt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
-    </span><span class="n">p</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">as.character</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">variable</span><span class="p">))</span><span class="w"> </span><span class="c1"># find the unique string names of the columns</span><span class="w">
-    </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">as_tibble</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="c1"># make the data cleaner</span><span class="w">
-    </span><span class="n">x1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ls</span><span class="p">(</span><span class="n">x</span><span class="p">)[[</span><span class="m">1</span><span class="p">]]</span><span class="w"> </span><span class="c1"># find the variable name of x1</span><span class="w">
-    </span><span class="n">x2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ls</span><span class="p">(</span><span class="n">x</span><span class="p">)[[</span><span class="m">2</span><span class="p">]]</span><span class="w"> </span><span class="c1"># find the variable name of x2</span><span class="w">
-    
-    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">select</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
-     
-      </span><span class="n">fig1</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggscatter</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="n">x1</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">x2</span><span class="p">,</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span><span class="w">
-                </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"reg.line"</span><span class="p">,</span><span class="w">
-                </span><span class="n">conf.int</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w">
-                </span><span class="n">palette</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"jco"</span><span class="p">,</span><span class="w">
-                </span><span class="n">cor.coef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w">
-                </span><span class="n">cor.method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">methodR</span><span class="p">,</span><span class="w">
-                </span><span class="n">cor.coeff.args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">list</span><span class="p">(</span><span class="n">label.y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">2</span><span class="p">])</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">2</span><span class="p">])</span><span class="o">/</span><span class="m">100</span><span class="o">*</span><span class="m">5</span><span class="p">),</span><span class="w">
-                </span><span class="n">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Scatter plot of the two variables with regression line"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
-        </span><span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"none"</span><span class="p">)</span><span class="c1">#  scatter plot with regression line</span><span class="w">
-      
-      </span><span class="n">d</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">dist</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">method</span><span class="o">=</span><span class="s2">"euclidean"</span><span class="p">,</span><span class="n">diag</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span><span class="n">upper</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="c1"># creating a hierarchical clustering model</span><span class="w">
-      </span><span class="n">hls</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">hclust</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s2">"complete"</span><span class="p">)</span><span class="w"> </span><span class="c1"># compiling the clusters</span><span class="w">
-      
-      </span><span class="n">cluster</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cutree</span><span class="p">(</span><span class="n">hls</span><span class="p">,</span><span class="m">4</span><span class="p">)</span><span class="w"> </span><span class="c1"># distributing to 4 bins</span><span class="w">
-      
-      </span><span class="n">ggData</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cbind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">cluster</span><span class="p">)</span><span class="w"> </span><span class="c1"># combining the data</span><span class="w">
-      </span><span class="n">ggData</span><span class="o">$</span><span class="n">cluster</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">as.factor</span><span class="p">(</span><span class="n">ggData</span><span class="o">$</span><span class="n">cluster</span><span class="p">)</span><span class="w">
-      </span><span class="n">borderX</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="p">])</span><span class="o">/</span><span class="m">100</span><span class="o">*</span><span class="n">input</span><span class="o">$</span><span class="n">slider3</span><span class="w">
-      </span><span class="n">borderY</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">2</span><span class="p">])</span><span class="o">/</span><span class="m">100</span><span class="o">*</span><span class="n">input</span><span class="o">$</span><span class="n">slider3</span><span class="w">
-      
-      </span><span class="n">fig2</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggplot</span><span class="p">(</span><span class="n">ggData</span><span class="p">,</span><span class="w"> </span><span class="n">aes_string</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="m">1</span><span class="p">]),</span><span class="n">y</span><span class="o">=</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="m">2</span><span class="p">]),</span><span class="n">color</span><span class="o">=</span><span class="n">factor</span><span class="p">(</span><span class="n">cluster</span><span class="p">)))</span><span class="o">+</span><span class="w">
-        </span><span class="n">geom_point</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">2.3</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
-        </span><span class="n">ylim</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">2</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">borderY</span><span class="p">,</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">2</span><span class="p">])</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">borderY</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
-        </span><span class="n">xlim</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="p">])</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">borderX</span><span class="p">,</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="p">])</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">borderX</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
-      </span><span class="n">geom_mark_circle</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">cluster</span><span class="p">),</span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cluster</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
-        </span><span class="n">ggtitle</span><span class="p">(</span><span class="s2">"Hierarchical clustering model"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
-        </span><span class="n">theme_classic</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
-        </span><span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"none"</span><span class="p">)</span><span class="w">
+<p>A machine learning investigation of volumetric and functional MRI abnormalities in adults born preterm. (2019)
+J Shang, P Fisher, JG Bäuml, M Daamen, N Baumann,…
+Human brain mapping 40 (14), 4239-4252</p>
 
-      </span><span class="n">figure</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">grid.arrange</span><span class="p">(</span><span class="w">
-        </span><span class="n">fig1</span><span class="p">,</span><span class="w">
-        </span><span class="n">fig2</span><span class="p">,</span><span class="w">
-        </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w">
-        
-      </span><span class="n">etc...</span><span class="w">
-</span></code></pre></div></div>
+<p><button onclick="window.location.href='Downloads/A machine learning investigation of volumetric and functional MRI abnormalities in adults born preterm.pdf';">Click Here (PDF)</button></p>
 
-<p>The Server function is where we perform calculations and develop our figures. The basic way that I’ve approached this is to use conditional statements.
-If the user selects correlation they will then change the output for the <strong>mainPanel</strong>. So we are conditionally changing the contents of output depending on inputs.
-This way people can adjust their selection on the fly and it will still give the desired result. The R Shiny package is reactive programming in it’s design. So the <strong>UI</strong>
-and <strong>Server</strong> functions run asynchronously to enable interactive feedback.</p>
+<p>A bedside application-based assessment of spatial orientation and memory: approaches and lessons learned (2019)
+VL Flanagin, P Fisher, B Olcay, S Kohlbecher, T Brandt
+Journal of neurology 266 (1), 126-138</p>
 
-<hr />
+<p><button onclick="window.location.href='Downloads/A bedside application-based assessment of spatial orientation and memory, approaches and lessons learned.pdf';">Click Here (PDF)</button></p>
 
-<h1 id="going-into-the-statistics">Going into the statistics</h1>
+<p><u>Research Projects:</u></p>
 
-<h2 id="correlation">Correlation</h2>
+<p>Exploring developmental correlates between preterm birth and schizophrenia using a machine learning approach - <b>Masters Thesis</b></p>
 
-<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">select</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+<p><button onclick="window.location.href='Downloads/Exploring developmental correlates between preterm birth and schizophrenia using a machine learning approach (1).pdf';">Click Here (PDF)</button></p>
 
-      
-      </span><span class="k">if</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">method2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">){</span><span class="w">
-        
-        </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cor.test</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="p">])),</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">2</span><span class="p">])),</span><span class="w">
-                        </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"pearson"</span><span class="p">)</span><span class="c1"># run the correlation, as.numeric(unlist) is how we are converting the data type to array</span><span class="w">
-      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">method2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">){</span><span class="w">
-        
-        </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cor.test</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="p">])),</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">2</span><span class="p">])),</span><span class="w">
-                        </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"spearman"</span><span class="p">)</span><span class="w">
-      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">input</span><span class="o">$</span><span class="n">method2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">3</span><span class="p">){</span><span class="w">
-        
-        </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">cor.test</span><span class="p">(</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="p">])),</span><span class="nf">as.numeric</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="m">2</span><span class="p">])),</span><span class="w">
-                        </span><span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"kendall"</span><span class="p">)</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-     
-      </span><span class="k">if</span><span class="p">(</span><span class="n">res</span><span class="o">$</span><span class="n">estimate</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="m">0</span><span class="p">){</span><span class="w">
-        </span><span class="n">corDirection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"positive"</span><span class="w">
-      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="p">{</span><span class="w">
-        </span><span class="n">corDirection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"negative"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
+<p>Comparison of fMRI Normalisation Techniques for Semiautomated Preprocessing Pipelines</p>
 
-<p>Here is a snippet of the code for the correlation analysis. When we calculate a correlation, we are trying to determine the relationship between
-two variables. In the provided example, that is age*earnings. When we want to look at a distribution like this. First we need to test if the data
-is <strong>parametric</strong> or not. This means that we have to run a test of normal distribution. So the first thing we should do, is jump across onto the <strong>normal distribution</strong>
-tab and check the results of this test. If it tells us that it is normally distributed. Then we can run a parametric correlation, which in this case 
-is the <strong>Pearson</strong> correlation.</p>
+<p><button onclick="window.location.href='Downloads/ComparisonofNormalisationTechniques (1) (1).pdf';">Click Here (PDF)</button></p>
 
-<p>Here is the Pearson’s correlation equation:</p>
+<p>Encoding and Recall fMRI analysis of differences in a face-name association task</p>
 
-<p align="center">
-<img src="https://latex.codecogs.com/gif.latex?r = \frac{\sum{(x-m_x)(y-m_y)}}{\sqrt{\sum{(x-m_x)^2}\sum{(y-m_y)^2}}} {} t " /> 
-</p>
-
-<p>Where <em>m</em><sub><em>x</em></sub> and <em>m</em><sub><em>y</em></sub> are the means of your two variables
-<strong>x</strong> and <strong>y</strong> are the two vectors with a length of <strong>n</strong></p>
-
-<p>Afterwhich we can perform a simple calculation to determine the <strong>p-value</strong> by calculating <em>t</em>.</p>
-
-<p align="center">
-<img src="https://latex.codecogs.com/gif.latex?t = \frac{r}{\sqrt{1-r^2}}\sqrt{n-2} {} t " /> 
-</p>
-
-<p>We can then look up the result on the following t-distribution table:</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>df/α</td>
-      <td>0.9</td>
-      <td>0.5</td>
-      <td>0.3</td>
-      <td>0.2</td>
-      <td>0.1</td>
-      <td>0.05</td>
-      <td>0.02</td>
-      <td>0.01</td>
-      <td>0.001</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0.158</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3.078</td>
-      <td>6.314</td>
-      <td>12.706</td>
-      <td>31.821</td>
-      <td>64</td>
-      <td>637</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>0.142</td>
-      <td>0.816</td>
-      <td>1.386</td>
-      <td>1.886</td>
-      <td>2.92</td>
-      <td>4.303</td>
-      <td>6.965</td>
-      <td>10</td>
-      <td>31.598</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>0.137</td>
-      <td>0.765</td>
-      <td>1.25</td>
-      <td>1.638</td>
-      <td>2.353</td>
-      <td>3.182</td>
-      <td>4.541</td>
-      <td>5.841</td>
-      <td>12.929</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>0.134</td>
-      <td>0.741</td>
-      <td>1.19</td>
-      <td>1.533</td>
-      <td>2.132</td>
-      <td>2.776</td>
-      <td>3.747</td>
-      <td>4.604</td>
-      <td>8.61</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>0.132</td>
-      <td>0.727</td>
-      <td>1.156</td>
-      <td>1.476</td>
-      <td>2.015</td>
-      <td>2.571</td>
-      <td>3.365</td>
-      <td>4.032</td>
-      <td>6.869</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>0.131</td>
-      <td>0.718</td>
-      <td>1.134</td>
-      <td>1.44</td>
-      <td>1.943</td>
-      <td>2.447</td>
-      <td>3.143</td>
-      <td>3.707</td>
-      <td>5.959</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>0.13</td>
-      <td>0.711</td>
-      <td>1.119</td>
-      <td>1.415</td>
-      <td>1.895</td>
-      <td>2.365</td>
-      <td>2.998</td>
-      <td>3.499</td>
-      <td>5.408</td>
-    </tr>
-    <tr>
-      <td>8</td>
-      <td>0.13</td>
-      <td>0.706</td>
-      <td>1.108</td>
-      <td>1.397</td>
-      <td>1.86</td>
-      <td>2.306</td>
-      <td>2.896</td>
-      <td>3.355</td>
-      <td>5.041</td>
-    </tr>
-    <tr>
-      <td>9</td>
-      <td>0.129</td>
-      <td>0.703</td>
-      <td>1.1</td>
-      <td>1.383</td>
-      <td>1.833</td>
-      <td>2.263</td>
-      <td>2.821</td>
-      <td>3.25</td>
-      <td>4.781</td>
-    </tr>
-    <tr>
-      <td>10</td>
-      <td>0.129</td>
-      <td>0.7</td>
-      <td>1.093</td>
-      <td>1.372</td>
-      <td>1.812</td>
-      <td>2.228</td>
-      <td>2.764</td>
-      <td>3.169</td>
-      <td>4.587</td>
-    </tr>
-    <tr>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td>Infini</td>
-      <td>0.126</td>
-      <td>0.674</td>
-      <td>1.036</td>
-      <td>1.282</td>
-      <td>1.645</td>
-      <td>1.96</td>
-      <td>2.326</td>
-      <td>2.576</td>
-      <td>3.291</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>We can use this look-up table to find our significance value.</p>
-
-<p><a href="http://www.sthda.com/english/wiki/t-distribution-table">Click here to see full table</a></p>
-
-<p>If our data is not normally distributed we can compute the same calculations using either the
-<strong>Spearman correlation formula</strong> or the <strong>Kendall correlation formula</strong>. But we won’t go into 
-details about those calculations here. Either way, the Shiny App takes care of all that for you!</p>
-
-<h2 id="paired-samples-t-test">Paired Samples <em>t</em> test</h2>
-
-<p>If we want to compare the mean values of two sets of variables and test whether they are different
-to a strong degree. Say, typically 95% certain that they are different. Then we can perform a simple
-paired samples <em>t</em> test.</p>
-
-<p>In the provided example we are looking at the difference between <strong>Test Scores</strong> in the <strong>day</strong> and in the <strong>night</strong>. We have 200
-data points for each group. Firstly we need to make sure we are following certain assumptions.</p>
-
-<p>For a <em>paired</em> samples <em>t</em> test. The data needs to have come from the same group. So these test results are collected from the same 
-people who completed a test during the day and also during the night.</p>
-
-<h3 id="we-can-then-compute-the-following-hypotheses">We can then compute the following hypotheses:</h3>
-
-<p>H<sub>0</sub>: µ<sub>1</sub> = µ<sub>2</sub> <strong>The paired population means are equal</strong></p>
-
-<p>H<sub>1</sub>: µ<sub>1</sub> ≠ µ<sub>2</sub> <strong>The paired population means are <em>not</em> equal</strong></p>
-
-<p>Where µ<sub>1</sub> and µ<sub>2</sub> are the population means of the two samples.</p>
-
-<p>So we therefore have two hypotheses: <strong>H<sub>0</sub></strong> and <strong>H<sub>1</sub></strong>.</p>
-
-<p>The goal of the <em>t</em> test is to determine if our data fits into the **H<sub>0</sub> or <em>NULL</em> hypothesis assumption, or is statistically
-different (significantly different) to the null hypothesis.</p>
-
-<p>A <em>t</em> test operates in the following manner:</p>
-
-<p align="center">
-<img src="https://latex.codecogs.com/gif.latex?t = \frac{m}{s/\sqrt{n}}" /> 
-</p>
-
-<p><strong><em>m</em></strong> = the mean difference between each pair of values.</p>
-
-<p><strong><em>n</em></strong> = the size of the sample</p>
-
-<p><strong><em>s</em></strong> = the standard deviation of</p>
-
-<h2 id="normal-distribution">Normal Distribution</h2>
-
-<p>The normal distribution is important for determining whether our data is <strong>parametric</strong> or <strong>non-parametric</strong>. We can do this by plotting
-the density/frequency of the data in a histogram. We are mostly concerned with what’s known as the <strong>Central Limit Theorem</strong>. Simply put we want
-to determine whether our data is nicely collected around our mean score without too many values skewing the data to one side and without too many
-outliers. The majority of our data should nicely sit within <strong>one standard deviation</strong> from the mean if we want it to be considered normally distributed.</p>
-
-<p>Luckily for us, there are some tools we can use to determine this.</p>
-
-<p>Firstly we can plot the density and histogram of the data (demonstrated in the Shiny App).</p>
-
-<p>We can also perform what’s known as a <strong>Q-Q plot</strong> or <strong>Quantile-Quantile plot</strong> which gives us the correlation between a given sample and the normal
-distribution with a 45-degree reference.</p>
-
-<h3 id="the-shapiro-wilks-test">The Shapiro-Wilk’s test</h3>
-
-<p>Unfortunately for us, whilst visualising the data in this way is helpful and important. We cannot rely on this fully to determine whether our data is normally 
-distributed. An eye-test is just not sufficiently accurate. One such tool that can handle this for us is the <strong>Shapiro-Wilk’s test of normality</strong>.</p>
-
-<p>This test is give us a much more reliable indication of whether or not our data is normally distributed.</p>
-
-<p>It’s also incredibly simple to perform in R:</p>
-
-<div class="language-R highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">normality</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">shapiro.test</span><span class="p">(</span><span class="n">data</span><span class="o">$</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="c1"># the shapiro test for normal distribution</span><span class="w">
-</span></code></pre></div></div>
-
-<p>And that’s that! You can also look at the descriptive statistics of the data which probably doesn’t need much describing.</p>
-
-<p>The code for my Hypothesis Machine is available on my github main page <a href="https://github.com/pauLiou/R-Portfolio/">here</a></p>
+<p><button onclick="window.location.href='Downloads\Encoding and Recall_ An fMRI analysis of differences in a face-name association task.pdf';">Click Here (PDF)</button></p>
 
 
       <footer class="site-footer">
