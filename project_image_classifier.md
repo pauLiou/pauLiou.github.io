@@ -212,18 +212,13 @@ history = model.fit(train_data,
 
 
 
-    Epoch 1/100
-    12/12 [==============================] - 15s 498ms/step - loss: 0.7366 - accuracy: 0.5083 - val_loss: 0.3516 - val_accuracy: 0.9415
-    Epoch 2/100
-    12/12 [==============================] - 5s 462ms/step - loss: 0.5921 - accuracy: 0.7250 - val_loss: 0.6594 - val_accuracy: 0.6245
-    Epoch 3/100
-    12/12 [==============================] - 5s 410ms/step - loss: 0.4646 - accuracy: 0.7667 - val_loss: 0.4675 - val_accuracy: 0.7943
-    Epoch 4/100
-    12/12 [==============================] - 5s 404ms/step - loss: 0.4695 - accuracy: 0.7750 - val_loss: 0.3443 - val_accuracy: 0.8925
-    Epoch 5/100
-    12/12 [==============================] - 5s 388ms/step - loss: 0.3557 - accuracy: 0.8167 - val_loss: 0.3717 - val_accuracy: 0.8660
-    Epoch 6/100
-    12/12 [==============================] - 5s 388ms/step - loss: 0.3023 - accuracy: 0.8500 - val_loss: 0.5903 - val_accuracy: 0.6906
+    64/64 [==============================] - 19s 298ms/step - loss: 0.4072 - accuracy: 0.8578 - val_loss: 3.5288 - val_accuracy: 0.8115
+    Epoch 10/100
+    64/64 [==============================] - 19s 289ms/step - loss: 0.3391 - accuracy: 0.8859 - val_loss: 0.1876 - val_accuracy: 0.9500
+    Epoch 11/100
+    64/64 [==============================] - 18s 285ms/step - loss: 0.3123 - accuracy: 0.8984 - val_loss: 0.2271 - val_accuracy: 0.9192
+    Epoch 12/100
+    64/64 [==============================] - 18s 281ms/step - loss: 0.3779 - accuracy: 0.8703 - val_loss: 0.1995 - val_accuracy: 0.9385
 
 ```py
 # plotting the loss and accuracy 
@@ -235,7 +230,7 @@ print("Minimum validation loss: {}".format(history_df['val_loss'].min()))
 
 
 
-<img src="image_classifier_figures\vertopal_04cb403177b04b4cbbc6e5647ef19996/802f8dfc49cca02062cccbc2c444587938c9d674.png"/>
+<img src="image_classifier_figures\vertopal_04cb403177b04b4cbbc6e5647ef19996\figure5.png"/>
 
 
 <p style="background-color:#90EE90;color:black;font-size:30px;text-align:center;border-radius:12px 10px;border:2px;">3. Model Results and Evaluation </p>
@@ -248,9 +243,9 @@ print('test_loss:',test_loss)
 ```
 
 
-    50/50 [==============================] - 10s 205ms/step - loss: 0.2810 - accuracy: 0.8880
-    test acc: 0.8880000114440918
-    test_loss: 0.28100520372390747
+    50/50 [==============================] - 11s 227ms/step - loss: 0.1634 - accuracy: 0.9560
+    test acc: 0.9559999704360962
+    test_loss: 0.16340371966362
 
 
 ```py
