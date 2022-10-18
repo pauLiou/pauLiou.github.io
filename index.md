@@ -25,7 +25,7 @@ Temporal Order Judgements and Presaccadic Shifts of Attention: What can Prior En
 P. Fisher & T. Schenk
 Journal of Vision
 
-<button onclick="window.location.href='Downloads/Temporal Order Judgements and Presaccadic Shifts of Attention What can Prior Entry tell us about the Premotor Theory.pdfproject_tableau';">Click Here (PDF)</button>
+<button onclick="window.location.href='Downloads/Temporal Order Judgements and Presaccadic Shifts of Attention What can Prior Entry tell us about the Premotor Theory.pdf';">Click Here (PDF)</button>
 
 
 A machine learning investigation of volumetric and functional MRI abnormalities in adults born preterm. (2019)
@@ -53,4 +53,4 @@ Comparison of fMRI Normalisation Techniques for Semiautomated Preprocessing Pipe
 
 Encoding and Recall fMRI analysis of differences in a face-name association task
 
-<button onclick="window.location.href='Downloads\Encoding and Recall_ An fMRI analysis of differences in a face-name association task.pdf';">Click Here (PDF)</button>
+<button onclick="window.location.href='Downloads/Encoding and Recall_ An fMRI analysis of differences in a face-name association task.pdf';">Click Here (PDF)</button>
